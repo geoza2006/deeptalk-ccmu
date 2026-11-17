@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fbf8f3" />
+  <title>Deep Talk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="start-screen" id="startScreen">
+      <header class="brand-row">
+        <div class="brand"><span>✿</span> Deep Talk</div>
+        <span class="edition">Made this for what?</span>
+      </header>
+      <div class="hero">
+        <div class="eyebrow">DEEP TALK JAAA</div>
+        <h1>คุยกันทำไม<br /><em>ต่อยกันจบๆ</em></h1>
+        <p>คำถามเล็กๆ คำตอบโหดๆ<br />ตอบด้วยใจยังไงก็รอด</p>
+      </div>
+      <div class="category-panel">
+        <label for="category">เลือกชุดคำถาม</label>
+        <div class="select-wrap">
+          <select id="category">
+            <option value="all">รวมทุกหมวด</option>
+            <option value="understand">เทส1</option>
+            <option value="team">เทส2</option>
+            <option value="leadership">เทส3</option>
+            <option value="feelings">เทส4</option>
+          </select>
+          <span>⌄</span>
+        </div>
+        <p>คำถามจะถูกสลับลำดับทุกครั้งที่เริ่ม</p>
+      </div>
+      <button class="start-button" id="startButton">เริ่มคำถาม <span>→</span></button>
+      <div class="how-to">
+        <div><span>←</span> ปัดซ้ายเพื่อข้าม</div>
+        <div><span>→</span> ปัดขวาเพื่อตอบ</div>
+      </div>
+    </section>
+
+    <section class="game-screen" id="gameScreen" hidden aria-hidden="true">
+      <header class="game-header">
+        <button class="icon-btn" id="exitButton" aria-label="กลับหน้าเริ่มต้น">↶</button>
+        <div class="game-title" id="gameCategory">รวมทุกหมวด</div>
+        <div class="header-actions">
+          <button class="icon-btn" id="focusButton" aria-label="เต็มหน้าจอคำถาม">⛶</button>
+          <button class="icon-btn" id="restartButton" aria-label="สุ่มใหม่">↻</button>
+        </div>
+      </header>
+      <div class="game-progress"><span id="questionCounter">1 / 1</span><span>คำถาม</span></div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <section class="card-stage">
+        <div class="swipe-label left">ข้าม</div>
+        <article class="question-card" id="questionCard" tabindex="0">
+          <div class="card-top"><span id="questionNumber">01</span><span class="sparkle">✦</span></div>
+          <div class="question-content">
+            <div class="quote">“</div>
+            <p id="questionText"></p>
+          </div>
+          <div class="card-bottom"><span id="categoryPill">เข้าใจใคร?</span><span>···</span></div>
+        </article>
+        <div class="swipe-label right">ตอบ</div>
+        <button class="focus-exit" id="focusExitButton" aria-label="ออกจากโหมดเต็มคำถาม">✕</button>
+      </section>
+      <p class="swipe-hint">ปัดซ้ายเพื่อข้าม · ปัดขวาเพื่อตอบ</p>
+      <div class="game-actions">
+        <button id="skipButton">← ข้าม</button>
+        <button id="answerButton">ตอบ →</button>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=3" defer></script>
+</body>
+</html>
